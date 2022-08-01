@@ -1,0 +1,8 @@
+Déposer ici les fichiers listés ci-dessous, générés via le code modelisation/etape4_creer_model_et_dump.py.
+
+* df_10_features_80.csv
+ pipeline_credit.joblib
+* X_test.csv
+* X_train.csv
+* y_test.csv
+* y_train.csv

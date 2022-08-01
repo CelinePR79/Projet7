@@ -1,0 +1,12 @@
+gunicorn
+flask
+flask_cors
+imblearn
+joblib
+kaleido
+matplotlib
+numpy
+pandas
+plotly
+seaborn
+shap

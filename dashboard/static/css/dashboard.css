@@ -1,0 +1,5 @@
+/* pour augmenter la taille de l'image lorsque la souris passe dessus (hover) */
+.dynamic_zoom img:hover {
+	transform: scale(1.5);
+}
+

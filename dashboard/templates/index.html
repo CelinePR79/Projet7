@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Prêt à dépenser</h1>
+
+L'application « Prêt à dépenser » repose sur un modèle, obtenu selon un apprentissage de type Random Forest, 
+<br />
+dont les <mark>10 caractéristiques principales</mark> décrivant les clients sont les suivantes :
+<br />
+<img src="{{ url_for('static' , filename='img/global_shap_fig.png') }}" class="img-fluid" width="50%" height="auto" alt="Erreur Top 10 features of the model" />
+{% endblock %}

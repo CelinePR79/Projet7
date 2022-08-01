@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<p>
+	ID client : <span id="client_index">{{client_index}}</span>
+	<br />
+	Remboursement : {{remboursement}}
+</p>
+
+
+<!-- Organisation sous forme d'un pseudo-tableaux à deux colonnes -->
+<div style="width: 100%; display: table;">
+	
+	<!-- une ligne -->
+	<div style="display: table-row; height: 100px;">
+		<!-- bloc à gauche -->
+		<div style="width: 50%; display: table-cell; ">
+			 <img src="{{ url_for('result_images' , filename=image_proba) }}" width="auto" height="200" alt="Erreur chart proba" />
+		</div>
+		<!-- bloc à droite -->
+		<div style="display: table-cell; "> 
+			<img src="{{ url_for('result_images' , filename=image_shap) }}" width="auto" height="200" alt="Erreur chart shap" />
+		</div>
+	</div>
+	
+	<!-- une ligne -->
+	<div style="display: table-row; height: 100px;">
+		<!-- bloc à gauche -->
+		<div style="width: 50%; display: table-cell; ">
+			 <img id="image_distribution" src="{{ url_for('result_images' , filename=image_distribution) }}" width="auto" height="400" alt="Erreur distribution plot" />
+			<br />
+			<select id="feature_for_distribution" onChange="distribution_change()" >
+				<option value="EXT_SOURCE_3">EXT_SOURCE_3</option>
+				<option value="EXT_SOURCE_1">EXT_SOURCE_1</option>
+				<option value="EXT_SOURCE_2">EXT_SOURCE_2</option>
+				<option value="PAYMENT_RATE">PAYMENT_RATE</option>
+				<option value="AMT_ANNUITY">AMT_ANNUITY</option>
+				<option value="DAYS_EMPLOYED">DAYS_EMPLOYED</option>
+				<option value="ACTIVE_DAYS_CREDIT_MAX">ACTIVE_DAYS_CREDIT_MAX</option>
+				<option value="DAYS_BIRTH">DAYS_BIRTH</option>
+				<option value="ACTIVE_DAYS_CREDIT_ENDDATE_MIN">ACTIVE_DAYS_CREDIT_ENDDATE_MIN</option>
+				<option value="DAYS_ID_PUBLISH">DAYS_ID_PUBLISH</option>
+			</select>
+		</div>
+		<!-- bloc à droite -->
+		<div style="display: table-cell; " class="dynamic_zoom"> 
+			<img id="image_scatterplot"  src="{{ url_for('result_images' , filename=image_scatterplot) }}" width="auto" height="400" alt="Erreur scatter plot" />
+			<br />
+			<select id="var1_for_scatterplot"> 
+				<option value="EXT_SOURCE_3">EXT_SOURCE_3</option>
+				<option value="EXT_SOURCE_1">EXT_SOURCE_1</option>
+				<option value="EXT_SOURCE_2">EXT_SOURCE_2</option>
+				<option value="PAYMENT_RATE">PAYMENT_RATE</option>
+				<option value="AMT_ANNUITY">AMT_ANNUITY</option>
+				<option value="DAYS_EMPLOYED">DAYS_EMPLOYED</option>
+				<option value="ACTIVE_DAYS_CREDIT_MAX">ACTIVE_DAYS_CREDIT_MAX</option>
+				<option value="DAYS_BIRTH">DAYS_BIRTH</option>
+				<option value="ACTIVE_DAYS_CREDIT_ENDDATE_MIN">ACTIVE_DAYS_CREDIT_ENDDATE_MIN</option>
+				<option value="DAYS_ID_PUBLISH">DAYS_ID_PUBLISH</option>
+			</select>
+			<br />
+			<select id="var2_for_scatterplot"> 
+				<option value="EXT_SOURCE_1">EXT_SOURCE_1</option>
+				<option value="EXT_SOURCE_3">EXT_SOURCE_3</option>
+				<option value="EXT_SOURCE_2">EXT_SOURCE_2</option>
+				<option value="PAYMENT_RATE">PAYMENT_RATE</option>
+				<option value="AMT_ANNUITY">AMT_ANNUITY</option>
+				<option value="DAYS_EMPLOYED">DAYS_EMPLOYED</option>
+				<option value="ACTIVE_DAYS_CREDIT_MAX">ACTIVE_DAYS_CREDIT_MAX</option>
+				<option value="DAYS_BIRTH">DAYS_BIRTH</option>
+				<option value="ACTIVE_DAYS_CREDIT_ENDDATE_MIN">ACTIVE_DAYS_CREDIT_ENDDATE_MIN</option>
+				<option value="DAYS_ID_PUBLISH">DAYS_ID_PUBLISH</option>
+			</select>
+			<input type="button" onclick="scatterplot_change()" value="Update" />
+		</div>
+	</div>
+</div>
+
+<p>
+	<a href="index">retour</a>
+</p>
+{% endblock %}
+
+
